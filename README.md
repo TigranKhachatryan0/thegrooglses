@@ -1,4 +1,4 @@
-# NewGoogle
+# TheGrooglses
 Creating an alternative Google page, using the search?q= thing in the URL
 
 # Join our Discord server
