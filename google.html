@@ -3,8 +3,18 @@
 <head>
   <title>TheGrooglses</title>
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+  	#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+  </style>
 </head>
 <body>
 	<br><br><br><br>
@@ -16,26 +26,44 @@
 </div>
 <br>
 <br>
-<button class="mdc-fab mdc-fab--extended" onclick="Search()">
+<button class="mdc-fab mdc-fab--extended searchbutton" onclick="Search()">
   <div class="mdc-fab__ripple"></div>
   <span class="material-icons mdc-fab__icon">search</span>
   <span class="mdc-fab__label">Search</span>
 </button>
-<button class="mdc-fab mdc-fab--extended" onclick="ImFeelingLucky()">
+<button class="mdc-fab mdc-fab--extended searchbutton" onclick="ImFeelingLucky()">
   <div class="mdc-fab__ripple"></div>
   <span class="material-icons mdc-fab__icon">insert_emoticon</span>
   <span class="mdc-fab__label">I'm feeling Lucky</span>
 </button>
 
+<div role="progressbar" id="footer" style="opacity: 0;" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+</div>
+
 <script>
-function Search()
-{
+$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+    		Search();
+    }
+});
+
+function Search(){
+  $("#footer").css("opacity", "100");
   var textarea = document.getElementById("search");
   var value = textarea.value;
   window.location = "https://google.com/search?q=" + value;
 }
 
 function ImFeelingLucky(){
+  $("#footer").css("opacity", "100");
   var textarea = document.getElementById("search");
   var value = textarea.value;
   window.location = "https://google.com/search?q=" + value + "&btnI";
