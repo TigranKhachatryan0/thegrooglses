@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-	<p>Google</p>
-<textarea id="information" placeholder="Search Google"></textarea>
-<button onclick="Search()">Search</button>
+	<h1 align="center" style="font-family: sans-serif; font-size: 200%;">TheGrooglses</p>
+
+<div class="mdc-text-field mdc-text-field--fullwidth">
+  <input id="search" class="mdc-text-field__input" type="text" placeholder="Search Google using TheGrooglses" aria-label="Search">
+
+</div>
+<br>
+<br>
+<br>
+<button class="mdc-fab mdc-fab--extended" onclick="Search()">
+  <div class="mdc-fab__ripple"></div>
+  <span class="material-icons mdc-fab__icon">search</span>
+  <span class="mdc-fab__label">Search</span>
+</button>
 <script>
 function Search()
 {
-  var textarea = document.getElementById("information");
+  var textarea = document.getElementById("search");
   var value = textarea.value;
   window.location = "https://google.com/search?q=" + value;
 }
